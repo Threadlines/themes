@@ -22,7 +22,7 @@ concurrency:
 env:
   # The Threadlines commit whose scripts/theme-showcase.ts checks the themes.
   # A maintainer updates it (here and in index.yml) when the script changes.
-  THREADLINES_REF: "3a0b23f4c7d35d55115035f6fba2acb1a8883f5a"
+  THREADLINES_REF: "96db5acdc068ef6fdfa87e67c6d04169b4dc833b"
 
 jobs:
   check:
