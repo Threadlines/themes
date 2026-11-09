@@ -1,0 +1,39 @@
+name: Takedown request
+description: A theme here uses something of yours without permission.
+title: "Takedown: "
+labels: ["takedown"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Tell us which theme it is and what's yours. We act quickly on requests from rights holders. This issue is public, so leave out anything you don't want people to see.
+  - type: input
+    id: theme
+    attributes:
+      label: Which theme
+      description: The theme's folder name under `themes/`.
+      placeholder: night-rain
+    validations:
+      required: true
+  - type: input
+    id: who
+    attributes:
+      label: Who you are
+      description: Your name, and the person or company you act for if it isn't you.
+    validations:
+      required: true
+  - type: textarea
+    id: whats-yours
+    attributes:
+      label: What's yours
+      description: What in the theme comes from your work. The art, a logo, a character, a font? Be as specific as you can.
+    validations:
+      required: true
+  - type: input
+    id: original
+    attributes:
+      label: Link to the original
+      description: Where your work is published.
+      placeholder: https://
+    validations:
+      required: true

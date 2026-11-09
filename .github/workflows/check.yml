@@ -1,0 +1,84 @@
+# Checks a pull request's themes with the Threadlines showcase script.
+#
+# pull_request_target, so the workflow always comes from main: a pull request
+# can't edit the check that judges it. Its files are only read as data (the
+# script and its dependencies come from a pinned Threadlines commit, never
+# from the pull request), the token is read-only, and nothing from the pull
+# request (title, body, branch name) is ever put into a shell command.
+# Every pull request is checked: the script also refuses changes outside a
+# theme's folder from anyone but a maintainer.
+name: Check themes
+
+on:
+  pull_request_target:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+env:
+  # The Threadlines commit whose scripts/theme-showcase.ts checks the themes.
+  # A maintainer updates it (here and in index.yml) when the script changes.
+  THREADLINES_REF: "3a0b23f4c7d35d55115035f6fba2acb1a8883f5a"
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # The pull request goes in pr/, Threadlines beside it, so nothing the
+      # pull request adds can stand in for the script or its dependencies.
+      # Its head comes from this repository's own pull ref, with full history,
+      # so the base commit the check compares against is there too.
+      - name: Check out the pull request
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository }}
+          ref: refs/pull/${{ github.event.pull_request.number }}/head
+          path: pr
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check out Threadlines
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Threadlines/threadlines
+          ref: ${{ env.THREADLINES_REF }}
+          path: threadlines
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+          package-manager-cache: false
+
+      # pnpm comes from corepack, at the version Threadlines pins in its
+      # package.json. The filter installs the root and the scripts package
+      # with its dependencies; pnpm's strict layout means a file in scripts/
+      # can't import anything else anyway.
+      - name: Install the script's dependencies
+        working-directory: threadlines
+        env:
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: "0"
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile --filter "@threadlines/scripts..."
+
+      # The author and base come in through the environment, never pasted
+      # into the script. Maintainers (owner, member, collaborator) may change
+      # anything; everyone else may add or change only their own themes.
+      - name: Check themes
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          AUTHOR_ASSOCIATION: ${{ github.event.pull_request.author_association }}
+        run: |
+          trusted=""
+          case "$AUTHOR_ASSOCIATION" in
+            OWNER|MEMBER|COLLABORATOR) trusted="--trusted" ;;
+          esac
+          node threadlines/scripts/theme-showcase.ts check pr --base "$BASE_SHA" --author "$AUTHOR" $trusted

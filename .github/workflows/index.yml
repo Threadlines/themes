@@ -1,0 +1,91 @@
+# Rebuilds index.json and each theme's NOTICE.md after a merge, and commits
+# them to main as github-actions[bot]. A push made with GITHUB_TOKEN doesn't
+# start other workflows, so this doesn't run itself again.
+name: Rebuild the index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "themes/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: index
+  cancel-in-progress: false
+
+env:
+  # The Threadlines commit whose scripts/theme-showcase.ts builds the index.
+  # A maintainer updates it (here and in check.yml) when the script changes.
+  THREADLINES_REF: "3a0b23f4c7d35d55115035f6fba2acb1a8883f5a"
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      # Always the newest main, whatever triggered the run. The token stays
+      # out of .git/config: only the push step below gets it.
+      # Full history: each theme's "added" day is when its file first landed.
+      - name: Check out main
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          path: repo
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check out Threadlines
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Threadlines/threadlines
+          ref: ${{ env.THREADLINES_REF }}
+          path: threadlines
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+          package-manager-cache: false
+
+      - name: Install the script's dependencies
+        working-directory: threadlines
+        env:
+          COREPACK_ENABLE_DOWNLOAD_PROMPT: "0"
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile --filter "@threadlines/scripts..."
+
+      # A theme that fails the checks is left out of the list (and named in
+      # the log) rather than holding back every other theme.
+      - name: Build the index
+        run: node threadlines/scripts/theme-showcase.ts index repo
+
+      # Only the generated files are staged, so nothing else in the
+      # checkout ever reaches a commit. (ls-files rather than a
+      # plain `git add` glob, which fails when no NOTICE.md exists yet.) If
+      # main moved since the checkout, rebase onto it once and push again.
+      - name: Commit and push if anything changed
+        working-directory: repo
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add -A -- index.json
+          git ls-files -z --modified --deleted --others --exclude-standard \
+            -- ':(glob)themes/*/NOTICE.md' | xargs -0 -r git add -A --
+          if git diff --cached --quiet; then
+            echo "The index is up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: rebuild the index"
+          remote="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if ! git push "$remote" HEAD:main; then
+            git pull --rebase --autostash "$remote" main
+            git push "$remote" HEAD:main
+          fi
