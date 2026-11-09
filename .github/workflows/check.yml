@@ -74,16 +74,19 @@ jobs:
           allow-unsafe-pr-checkout: true
 
       # The author and base come in through the environment, never pasted
-      # into the script. Maintainers (owner, member, collaborator) may change
-      # anything; everyone else may add or change only their own themes.
+      # into the script. Maintainers (write access or more to this repository,
+      # asked of GitHub: a private org membership shows as "contributor") may
+      # change anything; everyone else may add or change only their own themes.
       - name: Check themes
         env:
+          GH_TOKEN: ${{ github.token }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
           AUTHOR: ${{ github.event.pull_request.user.login }}
-          AUTHOR_ASSOCIATION: ${{ github.event.pull_request.author_association }}
         run: |
+          permission=$(gh api "repos/$GITHUB_REPOSITORY/collaborators/$AUTHOR/permission" --jq .permission 2>/dev/null || echo none)
           trusted=""
-          case "$AUTHOR_ASSOCIATION" in
-            OWNER|MEMBER|COLLABORATOR) trusted="--trusted" ;;
+          case "$permission" in
+            admin|maintain|write) trusted="--trusted" ;;
           esac
+          echo "@$AUTHOR has $permission access."
           node threadlines/scripts/theme-showcase.ts check pr --base "$BASE_SHA" --author "$AUTHOR" $trusted
