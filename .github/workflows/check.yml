@@ -29,19 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      # The pull request goes in pr/, Threadlines beside it, so nothing the
-      # pull request adds can stand in for the script or its dependencies.
-      # Its head comes from this repository's own pull ref, with full history,
-      # so the base commit the check compares against is there too.
-      - name: Check out the pull request
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          repository: ${{ github.repository }}
-          ref: refs/pull/${{ github.event.pull_request.number }}/head
-          path: pr
-          fetch-depth: 0
-          persist-credentials: false
-
+      # Threadlines first, its dependencies installed, before anything from
+      # the pull request is on disk: nothing it adds can stand in for the
+      # script, its dependencies or their install.
       - name: Check out Threadlines
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -67,6 +57,21 @@ jobs:
         run: |
           corepack enable
           pnpm install --frozen-lockfile --filter "@threadlines/scripts..."
+
+      # The pull request's files go in pr/, as data the script reads; nothing
+      # in them is run, and this job has a read-only token and no secrets,
+      # which is why checking out a fork's code here is allowed on purpose.
+      # Its head comes from this repository's own pull ref, with full history,
+      # so the base commit the check compares against is there too.
+      - name: Check out the pull request
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: ${{ github.repository }}
+          ref: refs/pull/${{ github.event.pull_request.number }}/head
+          path: pr
+          fetch-depth: 0
+          persist-credentials: false
+          allow-unsafe-pr-checkout: true
 
       # The author and base come in through the environment, never pasted
       # into the script. Maintainers (owner, member, collaborator) may change
