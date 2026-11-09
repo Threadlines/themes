@@ -60,35 +60,6 @@
       }
     },
     {
-      "id": "morning-fog",
-      "name": "Morning Fog",
-      "base": "light",
-      "hasArt": true,
-      "colors": {
-        "background": "#f6f7fa",
-        "foreground": "#1e2430",
-        "accent": "#3a5796"
-      },
-      "credits": {
-        "author": "Threadlines",
-        "license": "CC-BY-4.0"
-      },
-      "sharedBy": "badcuban",
-      "featured": false,
-      "addedAt": "2026-11-09",
-      "hash": "c6de705e2d5d02647bd971773f637704ec7c801d882322ec2b70fb8c27f7a4f7",
-      "file": {
-        "path": "themes/morning-fog/theme.threadlines-theme",
-        "sha256": "1d10b5458baec4e5393403b68ba979ae9af7c8e973d63192262ac853f62650f8",
-        "bytes": 524333
-      },
-      "thumbnail": {
-        "path": "themes/morning-fog/thumbnail.png",
-        "sha256": "bdb3a875da6b01c59c5822ae3a69ccd7edeb57172024003b28a0b3dabcf6a4ef",
-        "bytes": 31897
-      }
-    },
-    {
       "id": "sea-glass",
       "name": "Sea Glass",
       "base": "light",
