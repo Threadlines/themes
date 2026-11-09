@@ -1,4 +1,92 @@
 {
   "format": "threadlines-showcase@1",
-  "themes": []
+  "themes": [
+    {
+      "id": "dusk-pines",
+      "name": "Dusk Pines",
+      "base": "dark",
+      "hasArt": true,
+      "colors": {
+        "background": "#151127",
+        "foreground": "#f4e7cf",
+        "accent": "#ff9b4f"
+      },
+      "credits": {
+        "author": "Threadlines",
+        "license": "CC-BY-4.0"
+      },
+      "sharedBy": "badcuban",
+      "featured": false,
+      "addedAt": "2026-11-09",
+      "hash": "109775b290f725193c3bb673c78ad2f0c035ff3eca0028e0f3499097bce862ce",
+      "file": {
+        "path": "themes/dusk-pines/theme.threadlines-theme",
+        "sha256": "d8b5a5cc2079145bc624ecb132c17f4b0e63bd2d675ea5a9300477330da3831d",
+        "bytes": 74744
+      },
+      "thumbnail": {
+        "path": "themes/dusk-pines/thumbnail.png",
+        "sha256": "7bcc6fa0e806791485749964a6ee8310069d37755d72d6dd6e3fc681b88c9526",
+        "bytes": 34140
+      }
+    },
+    {
+      "id": "inkwell",
+      "name": "Inkwell",
+      "base": "light",
+      "hasArt": true,
+      "colors": {
+        "background": "#f3ead8",
+        "foreground": "#2a2420",
+        "accent": "#a8432a"
+      },
+      "credits": {
+        "author": "Threadlines",
+        "license": "CC-BY-4.0"
+      },
+      "sharedBy": "badcuban",
+      "featured": false,
+      "addedAt": "2026-11-09",
+      "hash": "8bd280bdcaf98dae29bb24e8fa0a797b7608b3f9ccbcb076e6800ce59f03416c",
+      "file": {
+        "path": "themes/inkwell/theme.threadlines-theme",
+        "sha256": "493971a5fee8bded779bace3e9017a219cc22b45863ccd7a19eea8e5de4c13c1",
+        "bytes": 302063
+      },
+      "thumbnail": {
+        "path": "themes/inkwell/thumbnail.png",
+        "sha256": "70a99ce256a1be66ce9b104e9d878e2b36213c3c60cdf032ec7db60ecf6d6917",
+        "bytes": 20181
+      }
+    },
+    {
+      "id": "sea-glass",
+      "name": "Sea Glass",
+      "base": "light",
+      "hasArt": true,
+      "colors": {
+        "background": "#f3f9f8",
+        "foreground": "#1d2a2c",
+        "accent": "#0e7479"
+      },
+      "credits": {
+        "author": "Threadlines",
+        "license": "CC-BY-4.0"
+      },
+      "sharedBy": "badcuban",
+      "featured": false,
+      "addedAt": "2026-11-09",
+      "hash": "bda4f5c6c47e617c900a19de501173fe42818b91e7cc059c67ecce17155f9f0e",
+      "file": {
+        "path": "themes/sea-glass/theme.threadlines-theme",
+        "sha256": "3667d920ef50de5e2743ab2adcd66165935843e81f9ce0c8ac205a97dafe5ac5",
+        "bytes": 834326
+      },
+      "thumbnail": {
+        "path": "themes/sea-glass/thumbnail.png",
+        "sha256": "37c9d50ca5aa28436ae23c51a8fb831959188e06e48b5475702c95f922f27aff",
+        "bytes": 30845
+      }
+    }
+  ]
 }
