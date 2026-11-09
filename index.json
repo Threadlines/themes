@@ -62,36 +62,6 @@
       }
     },
     {
-      "id": "morning-fog",
-      "name": "Morning Fog",
-      "base": "light",
-      "hasArt": true,
-      "colors": {
-        "background": "#f6f7fa",
-        "foreground": "#1e2430",
-        "accent": "#3a5796"
-      },
-      "credits": {
-        "author": "Wilfredo Leon",
-        "link": "https://github.com/badcuban",
-        "license": "CC-BY-4.0"
-      },
-      "sharedBy": "badcuban",
-      "featured": false,
-      "addedAt": "2026-11-09",
-      "hash": "c05397f941649570fd50dc80476580f09f0fc287d60bfc83581fef9667a39707",
-      "file": {
-        "path": "themes/morning-fog/theme.threadlines-theme",
-        "sha256": "74b68ce5e74ce28a1df145d2fc2f47061f31dc80cbf4bf8a12485e39b614d22c",
-        "bytes": 524378
-      },
-      "thumbnail": {
-        "path": "themes/morning-fog/thumbnail.png",
-        "sha256": "bdb3a875da6b01c59c5822ae3a69ccd7edeb57172024003b28a0b3dabcf6a4ef",
-        "bytes": 31897
-      }
-    },
-    {
       "id": "sea-glass",
       "name": "Sea Glass",
       "base": "light",
