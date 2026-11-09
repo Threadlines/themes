@@ -1,7 +1,5 @@
 # Morning Fog
 
-By Wilfredo Leon · CC BY 4.0
+By Wilfredo Leon (https://github.com/badcuban). Shared under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-The theme is shared under CC BY 4.0.
-
-Its picture was drawn by Threadlines from the theme.
+The picture was drawn by Threadlines from the theme.

@@ -27,8 +27,8 @@
       },
       "thumbnail": {
         "path": "themes/dusk-pines/thumbnail.png",
-        "sha256": "7bcc6fa0e806791485749964a6ee8310069d37755d72d6dd6e3fc681b88c9526",
-        "bytes": 34140
+        "sha256": "6c08536b787f07bc22ad91035d523923922054f93875cca27bdf3da4fc5aca98",
+        "bytes": 10621
       }
     },
     {
@@ -57,8 +57,8 @@
       },
       "thumbnail": {
         "path": "themes/inkwell/thumbnail.png",
-        "sha256": "70a99ce256a1be66ce9b104e9d878e2b36213c3c60cdf032ec7db60ecf6d6917",
-        "bytes": 20181
+        "sha256": "9769f7e6e95c0d8f45df64837770b3b562093ea769331412dfbcd025e08789d0",
+        "bytes": 34618
       }
     },
     {
@@ -87,8 +87,8 @@
       },
       "thumbnail": {
         "path": "themes/morning-fog/thumbnail.png",
-        "sha256": "db18ba1298384dbb340d28a96ac5e1769d7215d39292fd0dca7c781e332f42f0",
-        "bytes": 20287
+        "sha256": "bdb3a875da6b01c59c5822ae3a69ccd7edeb57172024003b28a0b3dabcf6a4ef",
+        "bytes": 31897
       }
     },
     {
@@ -117,8 +117,8 @@
       },
       "thumbnail": {
         "path": "themes/sea-glass/thumbnail.png",
-        "sha256": "37c9d50ca5aa28436ae23c51a8fb831959188e06e48b5475702c95f922f27aff",
-        "bytes": 30845
+        "sha256": "7cda7564d06a36e350057e52abe8dee7cab35ab5cd4d49b66977fd78fca173f4",
+        "bytes": 44229
       }
     }
   ]
