@@ -1,4 +1,95 @@
 {
   "format": "threadlines-showcase@1",
-  "themes": []
+  "themes": [
+    {
+      "id": "dusk-pines",
+      "name": "Dusk Pines",
+      "base": "dark",
+      "hasArt": true,
+      "colors": {
+        "background": "#151127",
+        "foreground": "#f4e7cf",
+        "accent": "#ff9b4f"
+      },
+      "credits": {
+        "author": "Wilfredo Leon",
+        "link": "https://github.com/badcuban",
+        "license": "CC-BY-4.0"
+      },
+      "sharedBy": "badcuban",
+      "featured": false,
+      "addedAt": "2026-11-09",
+      "hash": "924fd730244e3857cf5b32fedf64605755b0791f5bc63af9ef87e4498845314f",
+      "file": {
+        "path": "themes/dusk-pines/theme.threadlines-theme",
+        "sha256": "c512c0a4f78e3248c7fe67ff0da9ce0b18041cb777fc3662bf6994ec872b536b",
+        "bytes": 74789
+      },
+      "thumbnail": {
+        "path": "themes/dusk-pines/thumbnail.png",
+        "sha256": "7bcc6fa0e806791485749964a6ee8310069d37755d72d6dd6e3fc681b88c9526",
+        "bytes": 34140
+      }
+    },
+    {
+      "id": "inkwell",
+      "name": "Inkwell",
+      "base": "light",
+      "hasArt": true,
+      "colors": {
+        "background": "#f3ead8",
+        "foreground": "#2a2420",
+        "accent": "#a8432a"
+      },
+      "credits": {
+        "author": "Wilfredo Leon",
+        "link": "https://github.com/badcuban",
+        "license": "CC-BY-4.0"
+      },
+      "sharedBy": "badcuban",
+      "featured": false,
+      "addedAt": "2026-11-09",
+      "hash": "170b5cd1f4408eb08256fc27ba2a69e1fce336d5f25c21a03926f482c828f7d7",
+      "file": {
+        "path": "themes/inkwell/theme.threadlines-theme",
+        "sha256": "25a199b79a9654e0a7dd30e2839e140b3aac4b542804dacf57add0c3a5453ed5",
+        "bytes": 302108
+      },
+      "thumbnail": {
+        "path": "themes/inkwell/thumbnail.png",
+        "sha256": "70a99ce256a1be66ce9b104e9d878e2b36213c3c60cdf032ec7db60ecf6d6917",
+        "bytes": 20181
+      }
+    },
+    {
+      "id": "sea-glass",
+      "name": "Sea Glass",
+      "base": "light",
+      "hasArt": true,
+      "colors": {
+        "background": "#f3f9f8",
+        "foreground": "#1d2a2c",
+        "accent": "#0e7479"
+      },
+      "credits": {
+        "author": "Wilfredo Leon",
+        "link": "https://github.com/badcuban",
+        "license": "CC-BY-4.0"
+      },
+      "sharedBy": "badcuban",
+      "featured": false,
+      "addedAt": "2026-11-09",
+      "hash": "619a871654f0b4cea3339c51aa87c61d1bbce06fc82ee28c1598dc7ea9ea0f5d",
+      "file": {
+        "path": "themes/sea-glass/theme.threadlines-theme",
+        "sha256": "9a83184bae4de637248d08205c425f8a10afb4e3081adc45ffdffb4cc4cc7ddd",
+        "bytes": 834371
+      },
+      "thumbnail": {
+        "path": "themes/sea-glass/thumbnail.png",
+        "sha256": "37c9d50ca5aa28436ae23c51a8fb831959188e06e48b5475702c95f922f27aff",
+        "bytes": 30845
+      }
+    }
+  ]
 }
