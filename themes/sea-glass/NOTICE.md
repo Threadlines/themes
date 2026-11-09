@@ -1,7 +1,5 @@
 # Sea Glass
 
-By Threadlines · CC BY 4.0
+By Threadlines. Shared under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-The theme is shared under CC BY 4.0.
-
-Its picture was drawn by Threadlines from the theme.
+The picture was drawn by Threadlines from the theme.
