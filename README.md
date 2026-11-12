@@ -52,7 +52,11 @@ The repo's own files, meaning the workflows and these docs, are MIT. See [LICENS
 
 ## It's public right away
 
-A pull request is public the moment you open it. Anyone can see the theme, its picture, your credit and your GitHub name. If you chose to include the prompt that made the theme, they can see that too. Closing the pull request doesn't take any of it off GitHub, so look over what you're sharing before you send it.
+A pull request is public the moment you open it. Anyone can see the theme, its picture, your credit and your GitHub name. If you chose to include the prompt that made the theme, they can see that too.
+
+Your email isn't shared when you use **Share to Showcase…** in Threadlines after 0.10.0. Version 0.10.0, and a pull request you make by hand, use the email your GitHub account or your git puts on commits.
+
+You can take a share back until it's added. Open the theme's menu in Threadlines and pick **Take back from Showcase…**, or close the pull request yourself. Either way the closed pull request stays on GitHub, so look over what you're sharing before you send it.
 
 ## Takedown
 
