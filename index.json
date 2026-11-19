@@ -2,6 +2,35 @@
   "format": "threadlines-showcase@1",
   "themes": [
     {
+      "id": "sommarstuga",
+      "name": "Sommarstuga",
+      "base": "dark",
+      "hasArt": true,
+      "colors": {
+        "background": "#0d2024",
+        "foreground": "#eef0e2",
+        "accent": "#f4c552"
+      },
+      "credits": {
+        "author": "Threadlines",
+        "license": "CC-BY-4.0"
+      },
+      "sharedBy": "badcuban",
+      "featured": false,
+      "addedAt": "2026-11-19",
+      "hash": "e6fbae06209c3e43380d5fb55fa1829c7813b59c1e6d5a606ca1f9390a6b5624",
+      "file": {
+        "path": "themes/sommarstuga/theme.threadlines-theme",
+        "sha256": "650046ce858d8b1d179c35bb49d0f6027df3a9ae8dc7a798610ce6cab760162f",
+        "bytes": 213386
+      },
+      "thumbnail": {
+        "path": "themes/sommarstuga/thumbnail.png",
+        "sha256": "83dff5299d14cabe248951bba545259d8d542efb7760c14846bc74f2f13c69f3",
+        "bytes": 45204
+      }
+    },
+    {
       "id": "dusk-pines",
       "name": "Dusk Pines",
       "base": "dark",
