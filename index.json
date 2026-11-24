@@ -2,6 +2,35 @@
   "format": "threadlines-showcase@1",
   "themes": [
     {
+      "id": "nexus-minimal",
+      "name": "Nexus Minimal",
+      "base": "dark",
+      "hasArt": true,
+      "colors": {
+        "background": "#0b0d11",
+        "foreground": "#e4e8ef",
+        "accent": "#3b9eff"
+      },
+      "credits": {
+        "author": "Threadlines",
+        "license": "CC-BY-4.0"
+      },
+      "sharedBy": "badcuban",
+      "featured": false,
+      "addedAt": "2026-11-23",
+      "hash": "fb6774a20e38b47bc21c4aa07defc64acb20055eaee926e99b0bca9c5afc609b",
+      "file": {
+        "path": "themes/nexus-minimal/theme.threadlines-theme",
+        "sha256": "3882ce4dc0d660fcbeed399c9dbcb291844a93cd059ae6098286fc0c8be567bb",
+        "bytes": 562099
+      },
+      "thumbnail": {
+        "path": "themes/nexus-minimal/thumbnail.png",
+        "sha256": "d370892bf9858d37f8fb09aa8ca23ac1c801fe14a668f491ae28110bea458549",
+        "bytes": 21735
+      }
+    },
+    {
       "id": "obsidian-cube",
       "name": "Obsidian Cube",
       "base": "dark",
