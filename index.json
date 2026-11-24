@@ -2,6 +2,35 @@
   "format": "threadlines-showcase@1",
   "themes": [
     {
+      "id": "obsidian-cube",
+      "name": "Obsidian Cube",
+      "base": "dark",
+      "hasArt": true,
+      "colors": {
+        "background": "#0d0f13",
+        "foreground": "#eceef2",
+        "accent": "#5294ff"
+      },
+      "credits": {
+        "author": "Threadlines",
+        "license": "CC-BY-4.0"
+      },
+      "sharedBy": "badcuban",
+      "featured": false,
+      "addedAt": "2026-11-23",
+      "hash": "9b2bf59cf39ba6ceb7eff25ec039dbecc62dd641d8026ea90c2e5ccb6f9edde8",
+      "file": {
+        "path": "themes/obsidian-cube/theme.threadlines-theme",
+        "sha256": "33cbfd626472605f3ade138fa7eae62e0793b230463faaa0b13b4dde5065de5b",
+        "bytes": 228328
+      },
+      "thumbnail": {
+        "path": "themes/obsidian-cube/thumbnail.png",
+        "sha256": "ff82a7b2844d1854240ee4069ea9fe86b07cb594a872bb3f4bb4b5240dd935f4",
+        "bytes": 8308
+      }
+    },
+    {
       "id": "sommarstuga",
       "name": "Sommarstuga",
       "base": "dark",
